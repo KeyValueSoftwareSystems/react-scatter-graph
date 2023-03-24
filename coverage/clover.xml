@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1679645335739" clover="3.2.0">
+  <project timestamp="1679645335740" name="All files">
+    <metrics statements="30" coveredstatements="26" conditionals="31" coveredconditionals="16" methods="12" coveredmethods="9" elements="73" coveredelements="51" complexity="0" loc="30" ncloc="30" packages="2" files="2" classes="2"/>
+    <package name="data">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="/Users/nikhin/Documents/test-npm/graph-test/src/data/index.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="scatter-graph">
+      <metrics statements="28" coveredstatements="24" conditionals="31" coveredconditionals="16" methods="12" coveredmethods="9"/>
+      <file name="ScatterGraph.tsx" path="/Users/nikhin/Documents/test-npm/graph-test/src/scatter-graph/ScatterGraph.tsx">
+        <metrics statements="28" coveredstatements="24" conditionals="31" coveredconditionals="16" methods="12" coveredmethods="9"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="29" count="0" type="cond" truecount="0" falsecount="10"/>
+        <line num="32" count="4" type="cond" truecount="8" falsecount="2"/>
+        <line num="36" count="4" type="stmt"/>
+        <line num="37" count="4" type="stmt"/>
+        <line num="38" count="4" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
+        <line num="40" count="40" type="stmt"/>
+        <line num="41" count="48" type="stmt"/>
+        <line num="42" count="64" type="stmt"/>
+        <line num="48" count="4" type="stmt"/>
+        <line num="65" count="40" type="stmt"/>
+        <line num="81" count="40" type="stmt"/>
+        <line num="106" count="64" type="stmt"/>
+        <line num="113" count="0" type="stmt"/>
+        <line num="114" count="0" type="stmt"/>
+        <line num="117" count="0" type="stmt"/>
+        <line num="124" count="48" type="stmt"/>
+        <line num="141" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

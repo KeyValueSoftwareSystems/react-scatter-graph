@@ -1,0 +1,27 @@
+
+{
+  "include": ["src"],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "src/tests",
+    "src/stories"
+  ],
+  "compilerOptions": {
+    "module": "esnext",
+    "lib": ["dom", "esnext"],
+    "importHelpers": true,
+    "rootDir": "src",
+    "outDir": "build",
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+  }
+}
