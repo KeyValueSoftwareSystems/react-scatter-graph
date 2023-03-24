@@ -25,3 +25,9 @@ export type ScatterGraphPropTypes = {
   renderXLabel?: (arg: number | string) => string;
   scatterPointColor?: (arg: GraphPoint) => string;
 }
+
+import { FC } from 'react';
+
+declare const ReactScatterGraph: FC<ScatterGraphPropTypes>;
+
+export default ReactScatterGraph;
