@@ -1,9 +1,9 @@
 
 # React Scatter graph
-<a href="https://www.npmjs.com/package/react-vertical-stepper"><img src="https://badgen.net/npm/v/react-vertical-stepper?color=blue" alt="npm version"></a> <a href="https://www.npmjs.com/package/react-vertical-stepper" ><img src="https://img.shields.io/npm/dw/react-vertical-stepper?label=Downloads" /></a> <a href="https://github.com/KeyValueSoftwareSystems/react-vertical-stepper"><img src="https://github.com/KeyValueSoftwareSystems/react-vertical-stepper/actions/workflows/update-and-publish.yml/badge.svg" alt="" /></a>
+<a href="https://www.npmjs.com/package/@keyvaluesystems/react-scatter-graph"><img src="https://badgen.net/npm/v/@keyvaluesystems/react-scatter-graph?color=blue" alt="npm version"></a> <a href="https://www.npmjs.com/package/@keyvaluesystems/react-scatter-graph" ><img src="https://img.shields.io/npm/dw/@keyvaluesystems/react-scatter-graph?label=Downloads" /></a> <a href="https://github.com/KeyValueSoftwareSystems/@keyvaluesystems/react-scatter-graph"><img src="https://github.com/KeyValueSoftwareSystems/@keyvaluesystems/react-scatter-graph/actions/workflows/update-and-publish.yml/badge.svg" alt="" /></a>
 
 <div align="center">
-<img src="./src/assets/vertical-stepper-example.png" alt="" width="269" height="416"/>
+<img src="./assets/react-scatter-graph-example-2.png" alt="" width="700"/>
 </div>
 
 A fully customizable ready to use scatter graph UI package for React.
