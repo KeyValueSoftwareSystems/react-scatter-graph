@@ -41,7 +41,7 @@ export default App;
 
 The `data` array is an array of objects with { x, y } cordinates.
 
-> Note: The graph width is resposive. So the it can be adjusted by paraent wrapper. Need to provide the height.
+> Note: The graph width is responsive. So it can be adjusted by a parent wrapper. You need to provide the height.
 
 ## Props
 
