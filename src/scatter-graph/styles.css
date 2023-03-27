@@ -39,13 +39,26 @@
   width: 100%;
 }
 
+.valueBox {
+  position: absolute;
+  z-index: 10;
+}
+
 .verticalLine {
   height: 40px;
   border: 1px solid gray;
-  position: absolute;
   border-radius: 5px;
   background-color: white;
-  z-index: 10;
+  box-shadow: 3px 3px 4px 0px rgba(189, 189, 189, 1);
+  transition: all 0.5s ease;
+  padding: 4px 10px;
+}
+
+.valueBoxTest {
+  height: 40px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: white;
   box-shadow: 3px 3px 4px 0px rgba(189, 189, 189, 1);
   transition: all 0.5s ease;
   padding: 4px 10px;
