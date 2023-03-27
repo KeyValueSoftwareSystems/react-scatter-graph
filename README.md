@@ -43,6 +43,45 @@ The `data` array is an array of objects with { x, y } cordinates.
 
 > Note: The graph width is responsive. So it can be adjusted by a parent wrapper. You need to provide the height.
 
+
+React Scatter Graph for date inputs:
+
+<div align="center">
+<img src="./assets/react-scatter-graph-example-3.png" alt="" width="700"/>
+</div>
+
+>Note: Scatter graph is a useful tool for plotting date values. In order to do so, timestamps must be provided for the x-axis values.
+
+```jsx
+import  React,  {  useState  }  from  'react';
+import ReactScatterGraph from '@keyvaluesystems/react-scatter-graph';
+
+function  App()  {  
+  data = [
+    // x given in milliseconds curresponding to the date
+    { x: 1672876800000, y: 150 },
+    { x: 1673568000000, y: 330 },
+    { x: 1674086400000, y: 315 },
+    { x: 1673222400000, y: 200}
+  ];
+
+  return (
+    <ScatterGraph
+      data={data}
+      yMax={500}
+      xMax={1674172800000}
+      xMin={1672531200000}
+      yInterval={50}
+      // x interval given in milliseconds curresponding to a particular date period.
+      xInterval={172800000}
+      graphHeight={500}
+    />
+  );
+}
+
+export default App;
+```
+
 ## Props
 
 Props that can be passed to the component are listed below:
@@ -95,7 +134,6 @@ Props that can be passed to the component are listed below:
       <td><code><b>graphHeight:</b> number</code></td>
       <td>Height of graph in pixel</td>
       <td><code>undefuned</code></td>
-    </tr>
     <tr>
       <td><code><b>axesColor:</b> string</code></td>
       <td>Color for the x and y axes color which indicates the lines that are used to measure data</td>
@@ -124,6 +162,13 @@ Props that can be passed to the component are listed below:
       <td><code><b>scatterPointColor?:</b> (arg: { x: number, y: number }): string</code></td>
       <td>
         Function for customizing scatter point color. Based on the args, we can customise the color. Return value should be the color hash / string.
+      </td>
+      <td><code>undefined</code></td>
+    </tr>
+    <tr>
+      <td><code><b>renderValuebox?:</b> (x: number, y: number): ReactElement</code></td>
+      <td>
+        Render function for customizing the value box shown on hover.
       </td>
       <td><code>undefined</code></td>
     </tr>

@@ -23,7 +23,13 @@ export type ScatterGraphPropTypes = {
   originAxisColor?: string;
   renderYLabel?: (arg: number | string) => string;
   renderXLabel?: (arg: number | string) => string;
+  renderValueBox?: (x: number, y: number) => ReactElement;
   scatterPointColor?: (arg: GraphPoint) => string;
+}
+
+export type DefaultValueBoxPropTypes = {
+  x: number,
+  y: number
 }
 
 import { FC } from 'react';
