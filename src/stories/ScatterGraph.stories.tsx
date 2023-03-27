@@ -3,7 +3,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import ScatterGraph from '../scatter-graph/ScatterGraph';
 import { GraphPoint } from '../types/types';
-import { data, data2 } from '../data';
+import { months } from '../constants/months';
+import { data, data2, data3 } from '../data';
 
 export default {
   title: 'Example/ScatterGraph',
@@ -55,7 +56,32 @@ const Template3: ComponentStory<typeof ScatterGraph> = () => (
   />
 );
 
+const Template4: ComponentStory<typeof ScatterGraph> = () => (
+  <ScatterGraph
+    data={data3}
+    yMax={500}
+    yMin={100}
+    xMax={1674172800000}
+    xMin={1672531200000}
+    yInterval={50}
+    xInterval={172800000}
+    graphHeight={300}
+    scatterPointColor={({ x }: GraphPoint): string => {
+      if (x > 400) return '#0000FF';
+      else return '#FF0000';
+    }}
+    renderXLabel={(item: string | number) => `${new Date(item).getDate()} ${months[new Date(item).getMonth()]} ${new Date(item).getFullYear()}`}
+    renderValueBox={(x: number, y: number) => (
+      <div className="valueBoxTest">
+        x value: {`${new Date(x).getDate()} ${months[new Date(x).getMonth()]} ${new Date(x).getFullYear()}`}
+        <br />
+        y value: {y}
+      </div>
+    )}
+  />
+);
 
 export const ScatterGraph1 = Template.bind({});
 export const ScatterGraph2 = Template2.bind({});
 export const ScatterGraph3 = Template3.bind({});
+export const ScatterGraph4 = Template4.bind({});

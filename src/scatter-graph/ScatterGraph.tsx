@@ -1,7 +1,15 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useEffect, useRef, useState, ReactElement } from 'react';
 
-import { GraphPoint, FormattedGraphPoint, ScatterGraphPropTypes } from '../types/types';
+import { GraphPoint, FormattedGraphPoint, ScatterGraphPropTypes, DefaultValueBoxPropTypes } from '../types/types';
 import './styles.css';
+
+const DefaultValueBox: FC<DefaultValueBoxPropTypes> = ({ x, y }): ReactElement => (
+  <div className="verticalLine">
+      x: {x}
+    <br />
+      y: {y}
+  </div>
+);
 
 const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   data,
@@ -16,6 +24,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   originAxisColor,
   renderYLabel,
   renderXLabel,
+  renderValueBox,
   scatterPointColor
 }) => {
   // states
@@ -59,15 +68,13 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
     <div style={{ position: 'relative', display: 'flex' }}>
       {showVerticalLine && (
         <div
-          className='verticalLine'
+          className='valueBox'
           style={{
             top: pos.yPlot + 20,
             left: pos.xPlot + 40
           }}
         >
-          x: {pos.x}
-          <br />
-          y: {pos.y}
+          {renderValueBox ? renderValueBox(pos.x, pos.y) : <DefaultValueBox x={pos.x} y={pos.y} />}
         </div>
       )}
       <div style={{ paddingRight: 6 }} ref={yPointsRef}>
