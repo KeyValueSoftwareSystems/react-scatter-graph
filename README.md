@@ -44,13 +44,16 @@ The `data` array is an array of objects with { x, y } cordinates.
 > Note: The graph width is responsive. So it can be adjusted by a parent wrapper. You need to provide the height.
 
 
-React Scatter Graph for date inputs:
+
+### React Scatter Graph for date inputs:
+
+Scatter graph is a useful tool for plotting date values. In order to do so, timestamps must be provided for the x-axis values.
+
 
 <div align="center">
 <img src="./assets/react-scatter-graph-example-3.png" alt="" width="700"/>
 </div>
 
->Note: Scatter graph is a useful tool for plotting date values. In order to do so, timestamps must be provided for the x-axis values.
 
 ```jsx
 import  React,  {  useState  }  from  'react';
