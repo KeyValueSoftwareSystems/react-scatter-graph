@@ -53,6 +53,12 @@ The `data` array is an array of objects with { x, y } cordinates.
 
 React Scatter Graph for date inputs:
 
+<div align="center">
+<img src="./assets/react-scatter-graph-example-3.png" alt="" width="700"/>
+</div>
+
+>Note: Scatter graph is a useful tool for plotting date values. In order to do so, timestamps must be provided for the x-axis values.
+
 ```jsx
 import  React,  {  useState  }  from  'react';
 import ReactScatterGraph from '@keyvaluesystems/react-scatter-graph';
@@ -136,17 +142,6 @@ Props that can be passed to the component are listed below:
       <td><code><b>graphHeight:</b> number</code></td>
       <td>Height of graph in pixel</td>
       <td><code>undefuned</code></td>
-    </tr>
-    <tr>
-      <td><code><b>originAxisColor?:</b> string</code></td>
-      <td>Color of origin axis lines of the graph.</td>
-      <td><code>undefuned</code></td>
-    </tr>
-    <tr>
-      <td><code><b>axesColor?:</b> string</code></td>
-      <td>Color of axis lines of the graph.</td>
-      <td><code>undefuned</code></td>
-    </tr>
     <tr>
       <td><code><b>renderYLabel?:</b> (arg: number | string): string</code></td>
       <td>
