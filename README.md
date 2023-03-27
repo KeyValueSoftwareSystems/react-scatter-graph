@@ -1,5 +1,5 @@
+# React Scatter Graph
 
-# React Scatter graph
 <a href="https://www.npmjs.com/package/@keyvaluesystems/react-scatter-graph"><img src="https://badgen.net/npm/v/@keyvaluesystems/react-scatter-graph?color=blue" alt="npm version"></a> <a href="https://www.npmjs.com/package/@keyvaluesystems/react-scatter-graph" ><img src="https://img.shields.io/npm/dw/@keyvaluesystems/react-scatter-graph?label=Downloads" /></a> <a href="https://github.com/KeyValueSoftwareSystems/@keyvaluesystems/react-scatter-graph"><img src="https://github.com/KeyValueSoftwareSystems/@keyvaluesystems/react-scatter-graph/actions/workflows/update-and-publish.yml/badge.svg" alt="" /></a>
 
 <div align="center">
@@ -7,7 +7,7 @@
 </div>
 
 A fully customizable ready to use scatter graph UI package for React.
-Try tweaking a vertical stepper using this codesandbox link <a href="https://codesandbox.io/s/vertical-stepper-demo-x24q7u" >here</a>
+Try tweaking React Scatter Graph using this codesandbox link <a href="https://codesandbox.io/s/stupefied-currying-ornk52" >here</a>
 
 ## Installation
 
@@ -22,34 +22,26 @@ You’ll need to install React separately since it isn't included in the package
 React Scatter Graph can run in a very basic mode like this:
 
 ```jsx
-import  React,  {  useState  }  from  'react';
+import React, { useState } from 'react';
 import ReactScatterGraph from '@keyvaluesystems/react-scatter-graph';
 
-function  App()  {  
+function App() {
   data = [
     { x: 450, y: 150 },
     { x: 360, y: 330 },
     { x: 650, y: 315 },
-    { x: 270, y: 200}
+    { x: 270, y: 200 }
   ];
 
-  return (
-    <ScatterGraph
-      data={data}
-      yMax={500}
-      xMax={600}
-      yInterval={50}
-      xInterval={50}
-      graphHeight={500}
-    />
-  );
+  return <ScatterGraph data={data} yMax={500} xMax={600} yInterval={50} xInterval={50} graphHeight={500} />;
 }
 
 export default App;
 ```
+
 The `data` array is an array of objects with { x, y } cordinates.
 
->Note: The graph width is resposive. So the it can be adjusted by paraent wrapper. Need to provide the height.
+> Note: The graph width is resposive. So the it can be adjusted by paraent wrapper. Need to provide the height.
 
 ## Props
 
@@ -103,6 +95,16 @@ Props that can be passed to the component are listed below:
       <td><code><b>graphHeight:</b> number</code></td>
       <td>Height of graph in pixel</td>
       <td><code>undefuned</code></td>
+    </tr>
+    <tr>
+      <td><code><b>axesColor:</b> string</code></td>
+      <td>Color for the x and y axes color which indicates the lines that are used to measure data</td>
+      <td><code>#9E9E9E</code></td>
+    </tr>
+    <tr>
+      <td><code><b>originAxisColor:</b> string</code></td>
+      <td>Color for the origin axis color</td>
+      <td><code>#9E9E9E</code></td>
     </tr>
     <tr>
       <td><code><b>renderYLabel?:</b> (arg: number | string): string</code></td>
