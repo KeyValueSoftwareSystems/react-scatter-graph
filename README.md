@@ -51,8 +51,9 @@ Scatter graph is a useful tool for plotting date values. In order to do so, time
 
 
 <div align="center">
-<img src="./assets/react-scatter-graph-example-3.png" alt="" width="700"/>
+<img src="./assets/react-scatter-graph-example-4.png" alt="" width="700"/>
 </div>
+
 
 
 ```jsx
