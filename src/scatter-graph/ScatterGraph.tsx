@@ -1,13 +1,15 @@
-import React, { FC, useEffect, useRef, useState, ReactElement } from 'react';
+import React, { FC, useRef, useState, ReactElement } from 'react';
 
 import { GraphPoint, FormattedGraphPoint, ScatterGraphPropTypes, DefaultValueBoxPropTypes } from '../types/types';
+import { useGraphWidthResize } from './hooks';
+
 import './styles.css';
 
 const DefaultValueBox: FC<DefaultValueBoxPropTypes> = ({ x, y }): ReactElement => (
-  <div className="verticalLine">
-      x: {x}
+  <div className='verticalLine'>
+    x: {x}
     <br />
-      y: {y}
+    y: {y}
   </div>
 );
 
@@ -30,26 +32,18 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   // states
   const [pos, setPos] = useState({ x: 0, y: 0, yPlot: 0, xPlot: 0 });
   const [showVerticalLine, setShowVerticalLine] = useState(false);
-  const [graphWidth, setGraphWidth] = useState(0);
 
   // refs
   const parentNode = useRef<HTMLDivElement | null>(null);
   const yPointsRef = useRef<HTMLDivElement | null>(null);
 
-  // useEffects
-  useEffect(() => {
-    window.onresize = (): void => {
-      setGraphWidth((parentNode?.current?.clientWidth || 0) - 30);
-    };
-
-    setGraphWidth((parentNode?.current?.clientWidth || 0) - 30);
-  }, [parentNode]);
+  // hooks
+  const graphWidth = useGraphWidthResize(parentNode);
 
   // consts
   const textHeight = 16;
   const graphHeightDiff = yMax - yMin;
   const graphWidthDiff = xMax - xMin;
-  // const updatedHeight = graphHeight - 8;
   const yRatio = graphHeight / graphHeightDiff;
   const xRatio = graphWidth / graphWidthDiff;
 
@@ -80,7 +74,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
       <div style={{ paddingRight: 6 }} ref={yPointsRef}>
         {yPoints.reverse().map((yLabel: number | string, index: number) => (
           <div
-            key={index}
+            key={yLabel}
             className='yPoints'
             style={{
               top: index * getGraphCoordinate(yInterval, yRatio) - index * textHeight - 7
@@ -97,8 +91,8 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
               key={index}
               x1='0'
               x2={graphWidth}
-              y1={`${index * getGraphCoordinate(yInterval, yRatio)}`}
-              y2={`${index * getGraphCoordinate(yInterval, yRatio)}`}
+              y1={index * getGraphCoordinate(yInterval, yRatio)}
+              y2={index * getGraphCoordinate(yInterval, yRatio)}
               strokeDasharray={4}
               stroke={axesColor}
               strokeWidth={1}
@@ -139,7 +133,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
         <div style={{ paddingRight: 6, display: 'flex' }}>
           {xPoints.map((text, index) => (
             <div
-              key={index}
+              key={text}
               className='xPoints'
               style={{
                 top: graphHeight + 5,

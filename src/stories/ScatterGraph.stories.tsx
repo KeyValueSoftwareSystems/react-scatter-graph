@@ -3,8 +3,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import ScatterGraph from '../scatter-graph/ScatterGraph';
 import { GraphPoint } from '../types/types';
-import { months } from '../constants/months';
 import { data, data2, data3 } from '../data';
+
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 export default {
   title: 'Example/ScatterGraph',
