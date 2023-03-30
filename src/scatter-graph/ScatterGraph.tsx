@@ -3,8 +3,8 @@ import React, { FC, useEffect, useRef, useState, ReactElement } from 'react';
 import { GraphPoint, FormattedGraphPoint, ScatterGraphPropTypes, DefaultValueBoxPropTypes } from '../types/types';
 import './styles.css';
 
-const DefaultValueBox: FC<DefaultValueBoxPropTypes> = ({ x, y }): ReactElement => (
-  <div className="verticalLine">
+export const DefaultValueBox: FC<DefaultValueBoxPropTypes> = ({ x, y }): ReactElement => (
+  <div className="verticalLine" data-testId="value-box">
       x: {x}
     <br />
       y: {y}
@@ -119,6 +119,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
           )}
           {formattedGraphPoints.map((grapghPoint: FormattedGraphPoint, index: number) => (
             <circle
+              data-testid="graph-point"
               key={index}
               cx={grapghPoint.xPlot}
               cy={grapghPoint.yPlot}
