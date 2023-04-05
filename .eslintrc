@@ -29,7 +29,8 @@
     "default-case":"error",
     "block-spacing": "error",
     "max-len":["warn", 150],
-    "space-before-blocks":"error"
+    "space-before-blocks":"error",
+    "react-hooks/exhaustive-deps": "off"
   },
   "settings": {
     "react": {
