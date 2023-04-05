@@ -5,9 +5,9 @@ import { useGraphWidthResize } from './hooks';
 
 import './styles.css';
 
-const DefaultValueBox: FC<DefaultValueBoxPropTypes> = ({ x, y }): ReactElement => (
-  <div className='verticalLine'>
-    x: {x}
+export const DefaultValueBox: FC<DefaultValueBoxPropTypes> = ({ x, y }): ReactElement => (
+  <div className="verticalLine" data-testId="value-box">
+      x: {x}
     <br />
     y: {y}
   </div>
@@ -113,6 +113,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
           )}
           {formattedGraphPoints.map((grapghPoint: FormattedGraphPoint, index: number) => (
             <circle
+              data-testid="graph-point"
               key={index}
               cx={grapghPoint.xPlot}
               cy={grapghPoint.yPlot}
