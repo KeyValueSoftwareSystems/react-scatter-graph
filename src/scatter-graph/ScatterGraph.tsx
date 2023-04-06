@@ -53,7 +53,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   const formattedGraphPoints = data.map((point: GraphPoint) => ({
     ...point,
     yPlot: graphHeight - getGraphCoordinate(point.y, yRatio) + getGraphCoordinate(axisValues.yMin, yRatio),
-    xPlot: (getGraphCoordinate(point.x, xRatio) - getGraphCoordinate(axisValues.xMin, xRatio))
+    xPlot: getGraphCoordinate(point.x, xRatio) - getGraphCoordinate(axisValues.xMin, xRatio)
   }));
 
   return (
