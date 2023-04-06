@@ -19,10 +19,6 @@ export default {
 const Template: ComponentStory<typeof ScatterGraph> = () => (
   <ScatterGraph
     data={data}
-    yMax={500}
-    xMax={600}
-    yInterval={50}
-    xInterval={50}
     graphHeight={500}
   />
 );
@@ -30,12 +26,6 @@ const Template: ComponentStory<typeof ScatterGraph> = () => (
 const Template2: ComponentStory<typeof ScatterGraph> = () => (
   <ScatterGraph
     data={data2}
-    yMax={500}
-    xMax={800}
-    yMin={50}
-    xMin={40}
-    yInterval={50}
-    xInterval={40}
     graphHeight={300}
     scatterPointColor={({ x }: GraphPoint): string => {
       if (x > 400) return '#0000FF';
@@ -47,12 +37,8 @@ const Template2: ComponentStory<typeof ScatterGraph> = () => (
 const Template3: ComponentStory<typeof ScatterGraph> = () => (
   <ScatterGraph
     data={data2}
-    yMax={500}
-    xMax={800}
-    yInterval={50}
-    xInterval={40}
     graphHeight={300}
-    axesColor='#00FF00'
+    axisColor='#00FF00'
     originAxisColor='#DDDDDD'
   />
 );
@@ -60,12 +46,6 @@ const Template3: ComponentStory<typeof ScatterGraph> = () => (
 const Template4: ComponentStory<typeof ScatterGraph> = () => (
   <ScatterGraph
     data={data3}
-    yMax={500}
-    yMin={100}
-    xMax={1674172800000}
-    xMin={1672531200000}
-    yInterval={50}
-    xInterval={172800000}
     graphHeight={300}
     scatterPointColor={({ x }: GraphPoint): string => {
       if (x > 400) return '#0000FF';

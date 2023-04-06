@@ -1,6 +1,7 @@
 import React, { FC, useRef, useState, ReactElement } from 'react';
 
 import { GraphPoint, FormattedGraphPoint, ScatterGraphPropTypes, DefaultValueBoxPropTypes } from '../types/types';
+import { getAxisRanges } from './utils';
 import { useGraphWidthResize } from './hooks';
 
 import './styles.css';
@@ -15,14 +16,8 @@ export const DefaultValueBox: FC<DefaultValueBoxPropTypes> = ({ x, y }): ReactEl
 
 const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   data,
-  yMin = 0,
-  yMax,
-  xMin = 0,
-  xMax,
-  yInterval,
-  xInterval,
   graphHeight,
-  axesColor,
+  axisColor,
   originAxisColor,
   renderYLabel,
   renderXLabel,
@@ -37,25 +32,28 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   const parentNode = useRef<HTMLDivElement | null>(null);
   const yPointsRef = useRef<HTMLDivElement | null>(null);
 
+  const axisValues = getAxisRanges(data);
+
   // hooks
   const graphWidth = useGraphWidthResize(parentNode);
 
   // consts
   const textHeight = 16;
-  const graphHeightDiff = yMax - yMin;
-  const graphWidthDiff = xMax - xMin;
-  const yRatio = graphHeight / graphHeightDiff;
-  const xRatio = graphWidth / graphWidthDiff;
-
-  const yPoints = Array.from({ length: graphHeightDiff / yInterval + 1 }, (_, index) => index * yInterval + yMin);
-  const xPoints = Array.from({ length: graphWidthDiff / xInterval + 1 }, (_, index) => index * xInterval + xMin);
+  const graphHeightDiff = axisValues.yMax - axisValues.yMin;
+  const graphWidthDiff = axisValues.xMax - axisValues.xMin;
+  const yPoints = Array.from({ length: graphHeightDiff / axisValues.yInterval + 1 }, (_, index) => index * axisValues.yInterval + axisValues.yMin);
+  const xPoints = Array.from({ length: graphWidthDiff / axisValues.xInterval + 1 }, (_, index) => index * axisValues.xInterval + axisValues.xMin);
+  const yRangeDiff = (yPoints[yPoints.length - 1] - yPoints[0]);
+  const xRangeDiff = (xPoints[xPoints.length - 1] - xPoints[0]);
+  const yRatio = graphHeight / yRangeDiff;
+  const xRatio = graphWidth / xRangeDiff;
 
   const getGraphCoordinate = (point: number, ratio: number): number => point * ratio;
 
   const formattedGraphPoints = data.map((point: GraphPoint) => ({
     ...point,
-    yPlot: graphHeight - getGraphCoordinate(point.y, yRatio) + getGraphCoordinate(yMin, yRatio),
-    xPlot: getGraphCoordinate(point.x, xRatio) - getGraphCoordinate(xMin, xRatio)
+    yPlot: graphHeight - getGraphCoordinate(point.y, yRatio) + getGraphCoordinate(axisValues.yMin, yRatio),
+    xPlot: (getGraphCoordinate(point.x, xRatio) - getGraphCoordinate(axisValues.xMin, xRatio))
   }));
 
   return (
@@ -77,7 +75,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
             key={yLabel}
             className='yPoints'
             style={{
-              top: index * getGraphCoordinate(yInterval, yRatio) - index * textHeight - 7
+              top: index * getGraphCoordinate(axisValues.yInterval, yRatio) - index * textHeight - 7
             }}
           >
             {renderYLabel ? renderYLabel(yLabel) : yLabel}
@@ -91,10 +89,10 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
               key={index}
               x1='0'
               x2={graphWidth}
-              y1={index * getGraphCoordinate(yInterval, yRatio)}
-              y2={index * getGraphCoordinate(yInterval, yRatio)}
+              y1={index * getGraphCoordinate(axisValues.yInterval, yRatio)}
+              y2={index * getGraphCoordinate(axisValues.yInterval, yRatio)}
               strokeDasharray={4}
-              stroke={axesColor}
+              stroke={axisColor}
               strokeWidth={1}
               style={{ zIndex: 1 }}
             />
@@ -106,7 +104,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
               y1={0}
               y2={graphHeight}
               strokeDasharray='4'
-              stroke={axesColor}
+              stroke={axisColor}
               strokeWidth={1}
               className='hoverVerticalLine'
             />
@@ -152,7 +150,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
 
 ScatterGraph.defaultProps = {
   graphHeight: 400,
-  axesColor: '#9E9E9E',
+  axisColor: '#9E9E9E',
   originAxisColor: '#9E9E9E'
 };
 

@@ -11,10 +11,6 @@ test('Scatter graph Component - simple', async () => {
   const dom = render(
     <ReactScatterGraph
       data={data}
-      yMax={500}
-      xMax={600}
-      yInterval={50}
-      xInterval={50}
       graphHeight={500}
     />
   );
@@ -26,10 +22,6 @@ test('Scatter graph Component - with custom X axis label', async () => {
   const dom = render(
     <ReactScatterGraph
       data={data}
-      yMax={500}
-      xMax={600}
-      yInterval={50}
-      xInterval={50}
       graphHeight={500}
       renderXLabel={(item: string | number): string => `${item} X`}
     />
@@ -42,10 +34,6 @@ test('Scatter graph Component - with custom Y axis label', async () => {
   const dom = render(
     <ReactScatterGraph
       data={data}
-      yMax={500}
-      xMax={600}
-      yInterval={50}
-      xInterval={50}
       graphHeight={500}
       renderYLabel={(item: string | number): string => `${item} Y`}
     />
@@ -58,10 +46,6 @@ test('Scatter graph Component - with scatter point color', async () => {
   const dom = render(
     <ReactScatterGraph
       data={data2}
-      yMax={500}
-      xMax={600}
-      yInterval={50}
-      xInterval={50}
       graphHeight={500}
       scatterPointColor={({ x }: GraphPoint): string => {
         if (x > 400) return '#0000FF';
@@ -88,10 +72,6 @@ test('Value box component - on graph point hover', async () => {
   const { getAllByTestId } = render(
     <ReactScatterGraph
       data={data2}
-      yMax={500}
-      xMax={600}
-      yInterval={50}
-      xInterval={50}
       graphHeight={500}
       scatterPointColor={({ x }: GraphPoint): string => {
         if (x > 400) return '#0000FF';
@@ -112,10 +92,6 @@ test('fires window resize event', () => {
 
   render(<ReactScatterGraph
     data={data2}
-    yMax={500}
-    xMax={600}
-    yInterval={50}
-    xInterval={50}
     graphHeight={500}
     scatterPointColor={({ x }: GraphPoint): string => {
       if (x > 400) return '#0000FF';
@@ -132,10 +108,6 @@ test('Scatter graph Component - with custom value box', async () => {
   const dom = render(
     <ReactScatterGraph
       data={data}
-      yMax={500}
-      xMax={600}
-      yInterval={50}
-      xInterval={50}
       graphHeight={500}
       renderYLabel={(item: string | number): string => `${item} Y`}
       renderValueBox={(x: number, y: number) => (
