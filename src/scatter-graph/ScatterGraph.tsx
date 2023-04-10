@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from 'react';
 
 import { FormattedGraphPoint, ScatterGraphPropTypes, DefaultValueBoxPropTypes } from '../types/types';
-import { useGraphDetails } from './hooks';
+import useScatterPlot from './useScatterPlot';
 
 import './styles.css';
 
@@ -39,7 +39,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
     axisValues,
     yRatio,
     parentNode
-  } = useGraphDetails(data, graphHeight);
+  } = useScatterPlot(data, graphHeight);
 
   return (
     <div style={{ position: 'relative', display: 'flex' }}>
