@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { getAxisRanges } from './utils';
 import { GraphPoint, GraphDetailsHookProps } from '../types/types';
 
-const useGraphDetails = (
+const useScatterPlot = (
   data: Array<GraphPoint>,
   graphHeight: number
 ): GraphDetailsHookProps => {
@@ -75,4 +75,4 @@ const useGraphDetails = (
   }
 }
 
-export { useGraphDetails };
+export default useScatterPlot;
