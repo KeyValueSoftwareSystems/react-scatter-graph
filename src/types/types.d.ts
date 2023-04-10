@@ -21,6 +21,17 @@ export type ScatterGraphPropTypes = {
   scatterPointColor?: (arg: GraphPoint) => string;
 }
 
+export type AxisRangesArguments = { x: number; y: number }[]
+
+export type AxisRanges = {
+  xMin: number;
+  xMax: number;
+  yMin: number;
+  yMax: number;
+  xInterval: number;
+  yInterval: number;
+}
+
 export type DefaultValueBoxPropTypes = {
   x: number,
   y: number

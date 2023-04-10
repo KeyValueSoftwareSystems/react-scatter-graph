@@ -8,7 +8,7 @@ import './styles.css';
 
 export const DefaultValueBox: FC<DefaultValueBoxPropTypes> = ({ x, y }): ReactElement => (
   <div className="verticalLine" data-testId="value-box">
-      x: {x}
+    x: {x}
     <br />
     y: {y}
   </div>
@@ -39,12 +39,16 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
 
   // consts
   const textHeight = 16;
+
   const graphHeightDiff = axisValues.yMax - axisValues.yMin;
   const graphWidthDiff = axisValues.xMax - axisValues.xMin;
+
   const yPoints = Array.from({ length: graphHeightDiff / axisValues.yInterval + 1 }, (_, index) => index * axisValues.yInterval + axisValues.yMin);
   const xPoints = Array.from({ length: graphWidthDiff / axisValues.xInterval + 1 }, (_, index) => index * axisValues.xInterval + axisValues.xMin);
+
   const yRangeDiff = (yPoints[yPoints.length - 1] - yPoints[0]);
   const xRangeDiff = (xPoints[xPoints.length - 1] - xPoints[0]);
+
   const yRatio = graphHeight / yRangeDiff;
   const xRatio = graphWidth / xRangeDiff;
 
