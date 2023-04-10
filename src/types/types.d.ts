@@ -12,19 +12,24 @@ export type FormattedGraphPoint = {
 
 export type ScatterGraphPropTypes = {
   data: Array<GraphPoint>;
-  yMin?: number;
-  yMax: number;
-  xMin?: number;
-  xMax: number;
-  yInterval: number;
-  xInterval: number;
   graphHeight: number;
-  axesColor?: string;
+  axisColor?: string;
   originAxisColor?: string;
   renderYLabel?: (arg: number | string) => string;
   renderXLabel?: (arg: number | string) => string;
   renderValueBox?: (x: number, y: number) => ReactElement;
   scatterPointColor?: (arg: GraphPoint) => string;
+}
+
+export type AxisRangesArguments = { x: number; y: number }[]
+
+export type AxisRanges = {
+  xMin: number;
+  xMax: number;
+  yMin: number;
+  yMax: number;
+  xInterval: number;
+  yInterval: number;
 }
 
 export type DefaultValueBoxPropTypes = {
