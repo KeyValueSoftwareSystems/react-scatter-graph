@@ -1,8 +1,7 @@
-import React, { FC, useRef, useState, ReactElement } from 'react';
+import React, { FC, ReactElement } from 'react';
 
-import { GraphPoint, FormattedGraphPoint, ScatterGraphPropTypes, DefaultValueBoxPropTypes } from '../types/types';
-import { getAxisRanges } from './utils';
-import { useGraphWidthResize } from './hooks';
+import { FormattedGraphPoint, ScatterGraphPropTypes, DefaultValueBoxPropTypes } from '../types/types';
+import { useGraphDetails } from './hooks';
 
 import './styles.css';
 
@@ -24,45 +23,23 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   renderValueBox,
   scatterPointColor
 }) => {
-  // states
-  const [pos, setPos] = useState({ x: 0, y: 0, yPlot: 0, xPlot: 0 });
-  const [showVerticalLine, setShowVerticalLine] = useState(false);
 
-  // refs
-  const parentNode = useRef<HTMLDivElement | null>(null);
-  const yPointsRef = useRef<HTMLDivElement | null>(null);
-
-  const axisValues = getAxisRanges(data);
-
-  // hooks
-  const graphWidth = useGraphWidthResize(parentNode);
-
-  // consts
-  const textHeight = 16;
-
-  const graphHeightDiff = axisValues.yMax - axisValues.yMin;
-  const graphWidthDiff = axisValues.xMax - axisValues.xMin;
-
-  const yPoints = Array.from(
-    { length: graphHeightDiff / axisValues.yInterval + 1 },
-    (_, index) => Math.round(index * axisValues.yInterval * 1000)/1000 + axisValues.yMin);
-  const xPoints = Array.from(
-    { length: graphWidthDiff / axisValues.xInterval + 1 },
-    (_, index) => Math.round(index * axisValues.xInterval * 1000)/1000 + axisValues.xMin);
-
-  const yRangeDiff = (yPoints[yPoints.length - 1] - yPoints[0]);
-  const xRangeDiff = (xPoints[xPoints.length - 1] - xPoints[0]);
-
-  const yRatio = graphHeight / yRangeDiff;
-  const xRatio = graphWidth / xRangeDiff;
-
-  const getGraphCoordinate = (point: number, ratio: number): number => point * ratio;
-
-  const formattedGraphPoints = data.map((point: GraphPoint) => ({
-    ...point,
-    yPlot: graphHeight - getGraphCoordinate(point.y, yRatio) + getGraphCoordinate(axisValues.yMin, yRatio),
-    xPlot: getGraphCoordinate(point.x, xRatio) - getGraphCoordinate(axisValues.xMin, xRatio)
-  }));
+  const {
+    pos,
+    setPos,
+    showVerticalLine,
+    setShowVerticalLine,
+    yPointsRef,
+    textHeight,
+    formattedGraphPoints,
+    getGraphCoordinate,
+    graphWidth,
+    yPoints,
+    xPoints,
+    axisValues,
+    yRatio,
+    parentNode
+  } = useGraphDetails(data, graphHeight);
 
   return (
     <div style={{ position: 'relative', display: 'flex' }}>
