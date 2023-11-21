@@ -1,3 +1,8 @@
+.container {
+  position: relative;
+  display: flex;
+}
+
 .dotHover {
   r: 5;
   cursor: pointer;
@@ -9,6 +14,11 @@
   transition: all 0.2s ease;
 }
 
+.xPointsContainer {
+  padding-right: 6;
+  display: flex;
+}
+
 .xPoints {
   position: absolute;
   line-height: 16px;
@@ -16,7 +26,7 @@
 }
 
 .xPoints::before {
-  content: "";
+  content: '';
   height: 6px;
   width: 1px;
   display: block;
@@ -24,6 +34,10 @@
   position: relative;
   top: -8px;
   left: 10px;
+}
+
+.yPointsContainer {
+  padding-right: 6px;
 }
 
 .yPoints {
@@ -39,12 +53,12 @@
   width: 100%;
 }
 
-.valueBox {
+.valueBoxContainer {
   position: absolute;
   z-index: 10;
 }
 
-.verticalLine {
+.valueBox {
   height: 40px;
   border: 1px solid gray;
   border-radius: 5px;

@@ -6,7 +6,7 @@
 <img src="https://raw.githubusercontent.com/KeyValueSoftwareSystems/react-scatter-graph/master/assets/react-scatter-graph-example-2.png" alt="" width="700"/>
 </div>
 
-A fully customizable ready to use scatter graph UI package for React.
+A fully customizable, ready to use scatter graph UI package for React.
 Try tweaking React Scatter Graph using this codesandbox link <a href="https://codesandbox.io/s/stupefied-currying-ornk52" >here</a>
 
 ## Installation
@@ -43,38 +43,28 @@ The `data` array is an array of objects with { x, y } cordinates.
 
 > Note: The graph width is responsive. So it can be adjusted by a parent wrapper. You need to provide the height.
 
-
-
 ### React Scatter Graph for date inputs:
 
 Scatter graph is a useful tool for plotting date values. In order to do so, timestamps must be provided for the x-axis values.
-
 
 <div align="center">
 <img src="./assets/react-scatter-graph-example-4.png" alt="" width="700"/>
 </div>
 
-
-
 ```jsx
-import  React,  {  useState  }  from  'react';
+import React, { useState } from 'react';
 import ReactScatterGraph from '@keyvaluesystems/react-scatter-graph';
 
-function  App()  {  
+function App() {
   data = [
     // x given in milliseconds curresponding to the date
     { x: 1672876800000, y: 150 },
     { x: 1673568000000, y: 330 },
     { x: 1674086400000, y: 315 },
-    { x: 1673222400000, y: 200}
+    { x: 1673222400000, y: 200 }
   ];
 
-  return (
-    <ScatterGraph
-      data={data}
-      graphHeight={500}
-    />
-  );
+  return <ScatterGraph data={data} graphHeight={500} />;
 }
 
 export default App;
@@ -104,12 +94,12 @@ Props that can be passed to the component are listed below:
       <td><code>undefuned</code></td>
     <tr>
       <td><code><b>axisColor:</b> string</code></td>
-      <td>Color for the x and y axes color which indicates the lines that are used to measure data</td>
+      <td>Color for the grid lines on the x and y axes. It helps user to see the exact value of a point on the graph</td>
       <td><code>#9E9E9E</code></td>
     </tr>
     <tr>
       <td><code><b>originAxisColor:</b> string</code></td>
-      <td>Color for the origin axis color</td>
+      <td>Color for the origin axis</td>
       <td><code>#9E9E9E</code></td>
     </tr>
     <tr>

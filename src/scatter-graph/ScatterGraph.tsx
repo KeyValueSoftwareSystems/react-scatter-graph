@@ -1,17 +1,10 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC } from 'react';
 
-import { FormattedGraphPoint, ScatterGraphPropTypes, DefaultValueBoxPropTypes } from '../types/types';
+import DefaultValueBox from './DefaultValueBox';
+import { FormattedGraphPoint, ScatterGraphPropTypes } from '../types/types';
 import useScatterPlot from './useScatterPlot';
 
 import './styles.css';
-
-export const DefaultValueBox: FC<DefaultValueBoxPropTypes> = ({ x, y }): ReactElement => (
-  <div className="verticalLine" data-testId="value-box">
-    x: {x}
-    <br />
-    y: {y}
-  </div>
-);
 
 const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   data,
@@ -23,7 +16,6 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   renderValueBox,
   scatterPointColor
 }) => {
-
   const {
     pos,
     setPos,
@@ -42,10 +34,10 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   } = useScatterPlot(data, graphHeight);
 
   return (
-    <div style={{ position: 'relative', display: 'flex' }}>
+    <div className='container'>
       {showVerticalLine && (
         <div
-          className='valueBox'
+          className='valueBoxContainer'
           style={{
             top: pos.yPlot + 20,
             left: pos.xPlot + 40
@@ -54,7 +46,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
           {renderValueBox ? renderValueBox(pos.x, pos.y) : <DefaultValueBox x={pos.x} y={pos.y} />}
         </div>
       )}
-      <div style={{ paddingRight: 6 }} ref={yPointsRef}>
+      <div className='yPointsContainer' ref={yPointsRef}>
         {yPoints.reverse().map((yLabel: number | string, index: number) => (
           <div
             key={yLabel}
@@ -91,19 +83,18 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
               strokeDasharray='4'
               stroke={axisColor}
               strokeWidth={1}
-              className='hoverVerticalLine'
             />
           )}
-          {formattedGraphPoints.map((grapghPoint: FormattedGraphPoint, index: number) => (
+          {formattedGraphPoints.map((graphPoint: FormattedGraphPoint, index: number) => (
             <circle
-              data-testid="graph-point"
+              data-testid='graph-point'
               key={index}
-              cx={grapghPoint.xPlot}
-              cy={grapghPoint.yPlot}
-              fill={scatterPointColor ? scatterPointColor(grapghPoint) : '#f00'}
+              cx={graphPoint.xPlot}
+              cy={graphPoint.yPlot}
+              fill={scatterPointColor ? scatterPointColor(graphPoint) : '#f00'}
               className='dotHover'
               onMouseEnter={(): void => {
-                setPos(grapghPoint);
+                setPos(graphPoint);
                 setShowVerticalLine(true);
               }}
               onMouseLeave={(): void => {
@@ -114,7 +105,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
           <line x1={0} x2={graphWidth} y1={graphHeight} y2={graphHeight} stroke={originAxisColor} strokeWidth={1} />
           <line x1={0} x2={0} y1={0} y2={graphHeight} stroke={originAxisColor} strokeWidth={1} />
         </svg>
-        <div style={{ paddingRight: 6, display: 'flex' }}>
+        <div className='xPointsContainer'>
           {xPoints.map((text, index) => (
             <div
               key={text}
