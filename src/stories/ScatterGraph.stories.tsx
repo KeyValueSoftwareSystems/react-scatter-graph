@@ -30,7 +30,7 @@ const Template2: ComponentStory<typeof ScatterGraph> = () => (
 );
 
 const Template3: ComponentStory<typeof ScatterGraph> = () => (
-  <ScatterGraph data={data2} graphHeight={300} axisColor='#00FF00' originAxisColor='#DDDDDD' />
+  <ScatterGraph data={data2} graphHeight={300} gridLineColor='#00FF00' originAxisColor='#DDDDDD' />
 );
 
 const Template4: ComponentStory<typeof ScatterGraph> = () => (

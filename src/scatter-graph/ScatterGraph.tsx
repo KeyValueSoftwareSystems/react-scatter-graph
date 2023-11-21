@@ -9,7 +9,7 @@ import './styles.css';
 const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   data,
   graphHeight,
-  axisColor,
+  gridLineColor,
   originAxisColor,
   renderYLabel,
   renderXLabel,
@@ -69,7 +69,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
               y1={index * getGraphCoordinate(axisValues.yInterval, yRatio)}
               y2={index * getGraphCoordinate(axisValues.yInterval, yRatio)}
               strokeDasharray={4}
-              stroke={axisColor}
+              stroke={gridLineColor}
               strokeWidth={1}
               style={{ zIndex: 1 }}
             />
@@ -81,7 +81,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
               y1={0}
               y2={graphHeight}
               strokeDasharray='4'
-              stroke={axisColor}
+              stroke={gridLineColor}
               strokeWidth={1}
             />
           )}
@@ -126,7 +126,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
 
 ScatterGraph.defaultProps = {
   graphHeight: 400,
-  axisColor: '#9E9E9E',
+  gridLineColor: '#9E9E9E',
   originAxisColor: '#9E9E9E'
 };
 

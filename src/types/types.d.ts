@@ -15,7 +15,7 @@ export type FormattedGraphPoint = {
 export type ScatterGraphPropTypes = {
   data: Array<GraphPoint>;
   graphHeight: number;
-  axisColor?: string;
+  gridLineColor?: string;
   originAxisColor?: string;
   renderYLabel?: (arg: number | string) => string;
   renderXLabel?: (arg: number | string) => string;
