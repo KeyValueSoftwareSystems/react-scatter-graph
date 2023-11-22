@@ -53,7 +53,26 @@ const Template4: ComponentStory<typeof ScatterGraph> = () => (
   />
 );
 
+const Template5: ComponentStory<typeof ScatterGraph> = () => (
+  <ScatterGraph
+    data={data3}
+    graphHeight={300}
+    styles={{
+      Container: {
+        marginTop: 50
+      },
+      XLabel: () => ({
+        color: 'blue'
+      }),
+      YLabel: () => ({
+        color: 'green'
+      })
+    }}
+  />
+);
+
 export const Basic = Template.bind({});
 export const WithCustomDataPointColors = Template2.bind({});
 export const WithCustomAxisColors = Template3.bind({});
 export const WithCustomRenderProps = Template4.bind({});
+export const WithCustomStyles = Template5.bind({});

@@ -1,5 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 
+import { GenericStyleElements, CallableStyleElements } from '../scatter-graph/constants';
+
 export type GraphPoint = {
   x: number;
   y: number;
@@ -12,6 +14,20 @@ export type FormattedGraphPoint = {
   xPlot: number;
 };
 
+type StyleObjectType = React.CSSProperties;
+
+type StyleFunction = (value: number | string) => StyleObjectType;
+
+type GenericStyles = {
+  [value in GenericStyleElements]?: StyleObjectType;
+};
+
+export type CallableStyles = {
+  [value in CallableStyleElements]?: StyleFunction;
+};
+
+export type CustomStyles = CallableStyles & GenericStyles;
+
 export type ScatterGraphPropTypes = {
   data: Array<GraphPoint>;
   graphHeight: number;
@@ -21,6 +37,7 @@ export type ScatterGraphPropTypes = {
   renderXLabel?: (arg: number | string) => string;
   renderValueBox?: (x: number, y: number) => ReactElement;
   scatterPointColor?: (arg: GraphPoint) => string;
+  styles?: CustomStyles;
 };
 
 export type AxisRangesArguments = { x: number; y: number }[];

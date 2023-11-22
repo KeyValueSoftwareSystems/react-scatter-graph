@@ -3,6 +3,8 @@ import React, { FC } from 'react';
 import DefaultValueBox from './DefaultValueBox';
 import { FormattedGraphPoint, ScatterGraphPropTypes } from '../types/types';
 import useScatterPlot from './useScatterPlot';
+import { CallableStyleElements, GenericStyleElements } from './constants';
+import { getCallableStyles } from './utils';
 
 import './styles.css';
 
@@ -14,7 +16,8 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   renderYLabel,
   renderXLabel,
   renderValueBox,
-  scatterPointColor
+  scatterPointColor,
+  styles = {}
 }) => {
   const {
     pos,
@@ -34,7 +37,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   } = useScatterPlot(data, graphHeight);
 
   return (
-    <div className='container'>
+    <div className='container' style={styles[GenericStyleElements.Container]}>
       {showVerticalLine && (
         <div
           className='valueBoxContainer'
@@ -52,7 +55,8 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
             key={yLabel}
             className='yPoints'
             style={{
-              top: index * getGraphCoordinate(axisValues.yInterval, yRatio) - index * textHeight - 7
+              top: index * getGraphCoordinate(axisValues.yInterval, yRatio) - index * textHeight - 7,
+              ...getCallableStyles(styles, CallableStyleElements.YLabel, yLabel)
             }}
           >
             {renderYLabel ? renderYLabel(yLabel) : yLabel}
@@ -106,16 +110,17 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
           <line x1={0} x2={0} y1={0} y2={graphHeight} stroke={originAxisColor} strokeWidth={1} />
         </svg>
         <div className='xPointsContainer'>
-          {xPoints.map((text, index) => (
+          {xPoints.map((xLabel, index) => (
             <div
-              key={text}
+              key={xLabel}
               className='xPoints'
               style={{
                 top: graphHeight + 5,
-                left: index * (graphWidth / (xPoints.length - 1)) - 10.5
+                left: index * (graphWidth / (xPoints.length - 1)) - 10.5,
+                ...getCallableStyles(styles, CallableStyleElements.XLabel, xLabel)
               }}
             >
-              {renderXLabel ? renderXLabel(text) : text}
+              {renderXLabel ? renderXLabel(xLabel) : xLabel}
             </div>
           ))}
         </div>

@@ -1,4 +1,5 @@
-import { AxisRanges, AxisRangesArguments } from "../types/types";
+import { AxisRanges, AxisRangesArguments, CustomStyles } from '../types/types';
+import { CallableStyleElements } from './constants';
 
 // This function takes in a range of values and calculates a suitable interval to
 // divide that range into smaller segments for display purposes.
@@ -11,16 +12,19 @@ const getInterval = (min: number, max: number): number => {
   // of "step" values used to create commonly-used and visually appealing intervals on a graph or chart.
   const steps = [1, 2, 5];
   for (let i = 0; i < steps.length; i++) {
-    if ((range / (interval * steps[i])) <= 8) {
+    if (range / (interval * steps[i]) <= 8) {
       interval *= steps[i];
       break;
     }
   }
   return interval;
-}
+};
 
 export const getAxisRanges = (testData: AxisRangesArguments): AxisRanges => {
-  let xmin = testData[0].x, xmax = testData[0].x, ymin = testData[0].y, ymax = testData[0].y;
+  let xmin = testData[0].x,
+    xmax = testData[0].x,
+    ymin = testData[0].y,
+    ymax = testData[0].y;
 
   // find minimum and maximum values for x and y
   for (let i = 0; i < testData.length; i++) {
@@ -43,4 +47,17 @@ export const getAxisRanges = (testData: AxisRangesArguments): AxisRanges => {
     xInterval: xInterval,
     yInterval: yInterval
   };
-}
+};
+
+// function to extract the style applicable to a given element when a function is exposed to user
+export const getCallableStyles = (
+  allStyles: CustomStyles,
+  element: CallableStyleElements,
+  id: number | string
+): object => {
+  const getElementStyle = allStyles[element];
+  if (getElementStyle) {
+    return getElementStyle(id);
+  }
+  return {};
+};
