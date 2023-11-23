@@ -1,12 +1,6 @@
-
 {
   "include": ["src"],
-  "exclude": [
-    "dist",
-    "node_modules",
-    "src/tests",
-    "src/stories"
-  ],
+  "exclude": ["dist", "node_modules", "src/tests", "src/stories"],
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],
@@ -22,6 +16,6 @@
     "jsx": "react",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": true
   }
 }

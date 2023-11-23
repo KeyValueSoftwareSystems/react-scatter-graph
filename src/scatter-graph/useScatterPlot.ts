@@ -2,10 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { getAxisRanges } from './utils';
 import { GraphPoint, GraphDetailsHookProps } from '../types/types';
 
-const useScatterPlot = (
-  data: Array<GraphPoint>,
-  graphHeight: number
-): GraphDetailsHookProps => {
+const useScatterPlot = (data: Array<GraphPoint>, graphHeight: number): GraphDetailsHookProps => {
   // states
   const [pos, setPos] = useState({ x: 0, y: 0, yPlot: 0, xPlot: 0 });
   const [showVerticalLine, setShowVerticalLine] = useState(false);
@@ -38,13 +35,15 @@ const useScatterPlot = (
 
   const yPoints = Array.from(
     { length: graphHeightDiff / axisValues.yInterval + 1 },
-    (_, index) => Math.round(index * axisValues.yInterval * 1000)/1000 + axisValues.yMin);
+    (_, index) => Math.round(index * axisValues.yInterval * 1000) / 1000 + axisValues.yMin
+  );
   const xPoints = Array.from(
     { length: graphWidthDiff / axisValues.xInterval + 1 },
-    (_, index) => Math.round(index * axisValues.xInterval * 1000)/1000 + axisValues.xMin);
+    (_, index) => Math.round(index * axisValues.xInterval * 1000) / 1000 + axisValues.xMin
+  );
 
-  const yRangeDiff = (yPoints[yPoints.length - 1] - yPoints[0]);
-  const xRangeDiff = (xPoints[xPoints.length - 1] - xPoints[0]);
+  const yRangeDiff = yPoints[yPoints.length - 1] - yPoints[0];
+  const xRangeDiff = xPoints[xPoints.length - 1] - xPoints[0];
 
   const yRatio = graphHeight / yRangeDiff;
   const xRatio = graphWidth / xRangeDiff;
@@ -72,7 +71,7 @@ const useScatterPlot = (
     xPoints,
     yRatio,
     parentNode
-  }
-}
+  };
+};
 
 export default useScatterPlot;
