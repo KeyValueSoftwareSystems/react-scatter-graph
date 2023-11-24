@@ -37,7 +37,7 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
   } = useScatterPlot(data, graphHeight);
 
   return (
-    <div className='container' style={styles[GenericStyleElements.Container]}>
+    <div className='container' style={styles[GenericStyleElements.Root]}>
       {showVerticalLine && (
         <div
           className='valueBoxContainer'

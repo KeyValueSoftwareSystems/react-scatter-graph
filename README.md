@@ -154,5 +154,60 @@ Props that can be passed to the component are listed below:
       </td>
       <td><code>undefined</code></td>
     </tr>
+    <tr>
+			<td><code><b>styles?:</b> object</code></td>
+			<td>Provides you with a bunch of style objects and callback functions to override the default styles.(refer 
+			<a href="#style-customizations">Style Customizations</a>)
+			<td><code>undefined</code></td>
+		</tr>
   </tbody>
 </table>
+
+<a name="style-customizations"></a>
+
+## Style Customizations
+
+Style customizations can be done by overriding default styles using the `styles` prop.
+The below code shows all the overridable styles using `styles` prop.
+
+```jsx
+<ScatterGraph
+  data={data}
+  graphHeight={500}
+  styles={{
+    Root?: {...styles},
+    XLabel?: (xLabel) => ({...styles}),
+    YLabel?: (yLabel) => ({...styles}),
+  }}
+/>;
+
+```
+
+For a more specific example, please refer the following:
+
+```jsx
+<ScatterGraph
+  data={data}
+  graphHeight={500}
+  styles={{
+    Root: {
+      marginTop: 50
+    },
+    XLabel: () => ({
+      color: 'blue'
+    }),
+    YLabel: () => ({
+      color: 'green'
+    })
+  }}
+/>
+```
+
+Within the `styles` prop, following keys accept a style object:
+
+- `Root` - overrides the style of outermost container.
+
+Within the `styles` prop, following keys accept a function that returns the desired style for each element:
+
+- `XLabel` - overrides the style of x-axis labels.
+- `YLabel` - overrides the style of y-axis labels.

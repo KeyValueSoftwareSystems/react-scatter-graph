@@ -58,7 +58,7 @@ const Template5: ComponentStory<typeof ScatterGraph> = () => (
     data={data3}
     graphHeight={300}
     styles={{
-      Container: {
+      Root: {
         marginTop: 50
       },
       XLabel: () => ({

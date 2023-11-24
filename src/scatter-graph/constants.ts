@@ -4,5 +4,5 @@ export enum CallableStyleElements {
 }
 
 export enum GenericStyleElements {
-  Container = 'Container'
+  Root = 'Root'
 }
