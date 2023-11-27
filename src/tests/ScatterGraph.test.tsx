@@ -100,6 +100,17 @@ test('Scatter graph Component - with custom value box', async () => {
           <br />y value: {y}
         </div>
       )}
+      styles={{
+        Root: {
+          marginTop: 50
+        },
+        XLabel: () => ({
+          color: 'blue'
+        }),
+        YLabel: () => ({
+          color: 'green'
+        })
+      }}
     />
   );
   const label = await getById(dom.container, 'graph-svg-wrapper');
