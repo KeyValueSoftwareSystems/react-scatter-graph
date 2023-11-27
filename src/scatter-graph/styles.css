@@ -1,6 +1,7 @@
 .container {
   position: relative;
   display: flex;
+  padding-top: 6px;
 }
 
 .dotHover {
@@ -15,7 +16,7 @@
 }
 
 .xPointsContainer {
-  padding-right: 6;
+  padding-right: 6px;
   display: flex;
 }
 
