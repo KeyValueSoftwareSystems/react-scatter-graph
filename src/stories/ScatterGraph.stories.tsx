@@ -55,7 +55,7 @@ const Template4: ComponentStory<typeof ScatterGraph> = () => (
 
 const Template5: ComponentStory<typeof ScatterGraph> = () => (
   <ScatterGraph
-    data={data3}
+    data={data2}
     graphHeight={300}
     styles={{
       Root: {
