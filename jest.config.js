@@ -10,8 +10,7 @@ module.exports = {
     '^.+\\.svg?$': '<rootDir>/transform.js',
     '^.+\\.scss?$': '<rootDir>/transform.js',
     '\\.(css|less)$': '<rootDir>/transform.js'
-
   },
   testEnvironment: 'jsdom',
-  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
+  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$'
 };

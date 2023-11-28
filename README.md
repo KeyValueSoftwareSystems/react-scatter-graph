@@ -6,7 +6,7 @@
 <img src="https://raw.githubusercontent.com/KeyValueSoftwareSystems/react-scatter-graph/master/assets/react-scatter-graph-example-2.png" alt="" width="700"/>
 </div>
 
-A fully customizable ready to use scatter graph UI package for React.
+A fully customizable, ready to use scatter graph UI package for React.
 Try tweaking React Scatter Graph using this codesandbox link <a href="https://codesandbox.io/s/stupefied-currying-ornk52" >here</a>
 
 ## Installation
@@ -39,45 +39,59 @@ function App() {
 export default App;
 ```
 
-The `data` array is an array of objects with { x, y } cordinates.
+The `data` array is an array of objects with { x, y } coordinates.
 
 > Note: The graph width is responsive. So it can be adjusted by a parent wrapper. You need to provide the height.
-
-
 
 ### React Scatter Graph for date inputs:
 
 Scatter graph is a useful tool for plotting date values. In order to do so, timestamps must be provided for the x-axis values.
 
-
 <div align="center">
 <img src="./assets/react-scatter-graph-example-4.png" alt="" width="700"/>
 </div>
 
-
-
 ```jsx
-import  React,  {  useState  }  from  'react';
+import React, { useState } from 'react';
 import ReactScatterGraph from '@keyvaluesystems/react-scatter-graph';
 
-function  App()  {  
+function App() {
   data = [
-    // x given in milliseconds curresponding to the date
+    // x given in milliseconds corresponding to the date
     { x: 1672876800000, y: 150 },
     { x: 1673568000000, y: 330 },
     { x: 1674086400000, y: 315 },
-    { x: 1673222400000, y: 200}
+    { x: 1673222400000, y: 200 }
   ];
 
-  return (
-    <ScatterGraph
-      data={data}
-      graphHeight={500}
-    />
-  );
+  return <ScatterGraph data={data} graphHeight={500} />;
 }
 
 export default App;
+```
+
+## v2.0.0 (Major Version Change)
+
+This release includes a breaking change. Please read this document carefully before upgrading
+
+### Breaking Changes
+
+- The `axisColor` prop has been renamed to `gridLineColor`.
+
+### Migration Steps
+
+- Update Prop: Replace the prop `axisColor` with the name `gridLineColor`.
+
+<b>Before</b>
+
+```jsx
+<ScatterGraph data={data} graphHeight={500} axisColor='#00FF00' />
+```
+
+<b>After</b>
+
+```jsx
+<ScatterGraph data={data} graphHeight={500} gridLineColor='#00FF00' />
 ```
 
 ## Props
@@ -95,21 +109,21 @@ Props that can be passed to the component are listed below:
   <tbody>
     <tr>
       <td><code><b>data:</b> object[]</code></td>
-      <td>An array of x-y cordinates to render.</td>
+      <td>An array of x-y coordinates to render.</td>
       <td><code>undefined</code></td>
     </tr>
     <tr>
       <td><code><b>graphHeight:</b> number</code></td>
       <td>Height of graph in pixel</td>
-      <td><code>undefuned</code></td>
+      <td><code>undefined</code></td>
     <tr>
-      <td><code><b>axisColor:</b> string</code></td>
-      <td>Color for the x and y axes color which indicates the lines that are used to measure data</td>
+      <td><code><b>gridLineColor:</b> string</code></td>
+      <td>Color for the grid lines on the x and y axes. It helps user to see the exact value of a point on the graph</td>
       <td><code>#9E9E9E</code></td>
     </tr>
     <tr>
       <td><code><b>originAxisColor:</b> string</code></td>
-      <td>Color for the origin axis color</td>
+      <td>Color for the origin axis</td>
       <td><code>#9E9E9E</code></td>
     </tr>
     <tr>
@@ -140,5 +154,60 @@ Props that can be passed to the component are listed below:
       </td>
       <td><code>undefined</code></td>
     </tr>
+    <tr>
+			<td><code><b>styles?:</b> object</code></td>
+			<td>Provides you with a bunch of style objects and callback functions to override the default styles.(refer 
+			<a href="#style-customizations">Style Customizations</a>)
+			<td><code>undefined</code></td>
+		</tr>
   </tbody>
 </table>
+
+<a name="style-customizations"></a>
+
+## Style Customizations
+
+Style customizations can be done by overriding default styles using the `styles` prop.
+The below code shows all the overridable styles using `styles` prop.
+
+```jsx
+<ScatterGraph
+  data={data}
+  graphHeight={500}
+  styles={{
+    Root?: {...styles},
+    XLabel?: (xLabel) => ({...styles}),
+    YLabel?: (yLabel) => ({...styles}),
+  }}
+/>;
+
+```
+
+For a more specific example, please refer the following:
+
+```jsx
+<ScatterGraph
+  data={data}
+  graphHeight={500}
+  styles={{
+    Root: {
+      marginTop: 50
+    },
+    XLabel: () => ({
+      color: 'blue'
+    }),
+    YLabel: () => ({
+      color: 'green'
+    })
+  }}
+/>
+```
+
+Within the `styles` prop, following keys accept a style object:
+
+- `Root` - overrides the style of outermost container.
+
+Within the `styles` prop, following keys accept a function that returns the desired style for each element:
+
+- `XLabel` - overrides the style of x-axis labels.
+- `YLabel` - overrides the style of y-axis labels.
