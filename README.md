@@ -7,7 +7,7 @@
 </div>
 
 A fully customizable, ready to use scatter graph UI package for React.
-Try tweaking React Scatter Graph using this codesandbox link <a href="https://codesandbox.io/s/stupefied-currying-ornk52" >here</a>
+Try tweaking React Scatter Graph using this codesandbox link <a href="https://codesandbox.io/p/sandbox/late-shadow-wzdh9l" >here</a>
 
 ## Installation
 
