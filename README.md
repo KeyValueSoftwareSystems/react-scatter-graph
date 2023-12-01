@@ -7,7 +7,7 @@
 </div>
 
 A fully customizable, ready to use scatter graph UI package for React.
-Try tweaking React Scatter Graph using this codesandbox link <a href="https://codesandbox.io/s/stupefied-currying-ornk52" >here</a>
+Try tweaking React Scatter Graph using this codesandbox link <a href="https://codesandbox.io/p/sandbox/late-shadow-wzdh9l" >here</a>
 
 ## Installation
 
@@ -16,6 +16,8 @@ npm install @keyvaluesystems/react-scatter-graph
 ```
 
 You’ll need to install React separately since it isn't included in the package.
+
+Note for **Next.js** users, if you are using Next.js version 13 or later, you will have to use the `use client` feature to ensure proper compatibility.
 
 ## Usage
 
