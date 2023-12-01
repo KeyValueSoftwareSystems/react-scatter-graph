@@ -17,6 +17,8 @@ npm install @keyvaluesystems/react-scatter-graph
 
 You’ll need to install React separately since it isn't included in the package.
 
+Note for **Next.js** users, if you are using Next.js version 13 or later, you will have to use the `use client` feature to ensure proper compatibility.
+
 ## Usage
 
 React Scatter Graph can run in a very basic mode like this:
