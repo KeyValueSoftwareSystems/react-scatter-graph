@@ -20,10 +20,20 @@
   display: flex;
 }
 
+.xPointsLabel {
+  position: relative;
+  left: -50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 58px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .xPoints {
   position: absolute;
   line-height: 16px;
-  text-align: right;
+  text-align: center;
 }
 
 .xPoints::before {
@@ -34,11 +44,10 @@
   background-color: #9e9e9e;
   position: relative;
   top: -8px;
-  left: 10px;
 }
 
 .yPointsContainer {
-  padding-right: 6px;
+  padding: 0 6px 0 8px;
 }
 
 .yPoints {

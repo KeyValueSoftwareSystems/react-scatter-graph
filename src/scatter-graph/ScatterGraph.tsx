@@ -116,11 +116,11 @@ const ScatterGraph: FC<ScatterGraphPropTypes> = ({
               className='xPoints'
               style={{
                 top: graphHeight + 5,
-                left: index * (graphWidth / (xPoints.length - 1)) - 10.5,
+                left: index * (graphWidth / (xPoints.length - 1)),
                 ...getCallableStyles(styles, CallableStyleElements.XLabel, xLabel)
               }}
             >
-              {renderXLabel ? renderXLabel(xLabel) : xLabel}
+              <div className='xPointsLabel'>{renderXLabel ? renderXLabel(xLabel) : xLabel}</div>
             </div>
           ))}
         </div>
