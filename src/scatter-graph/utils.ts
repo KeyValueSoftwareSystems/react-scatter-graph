@@ -57,7 +57,7 @@ export const getAxisRanges = (testData: AxisRangesArguments): AxisRanges => {
 
 // function to extract the style applicable to a given element when a function is exposed to user
 export const getCallableStyles = (
-  allStyles: CustomStyles,
+  allStyles: CustomStyles | object,
   element: CallableStyleElements,
   id: number | string
 ): object => {
