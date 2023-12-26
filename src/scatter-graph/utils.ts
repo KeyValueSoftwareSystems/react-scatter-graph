@@ -1,10 +1,16 @@
 import { AxisRanges, AxisRangesArguments, CustomStyles } from '../types/types';
-import { CallableStyleElements } from './constants';
+import { CallableStyleElements, DEFAULT_INTERVAL } from './constants';
 
 // This function takes in a range of values and calculates a suitable interval to
 // divide that range into smaller segments for display purposes.
 const getInterval = (min: number, max: number): number => {
   const range = max - min;
+
+  /* Important condition, Do not remove without proper testing!
+  In the below algorithm, Math.log10(range) returns (-Infinity), when range = 0, causing bugs.
+  This condition bypasses the above flaw */
+  if (range === 0) return DEFAULT_INTERVAL;
+
   // This formula calculates an interval that is a power of 10,
   //  such as 1, 10, 100, etc., based on the magnitude of the range.
   let interval = Math.pow(10, Math.floor(Math.log10(range)));

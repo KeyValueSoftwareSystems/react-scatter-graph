@@ -6,3 +6,5 @@ export enum CallableStyleElements {
 export enum GenericStyleElements {
   Root = 'Root'
 }
+
+export const DEFAULT_INTERVAL = 1;
