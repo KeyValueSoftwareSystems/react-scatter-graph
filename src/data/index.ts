@@ -134,7 +134,7 @@ export const data2 = [
 
 export const data3 = [
   {
-    x: 1672617600000,
+    x: 1671117600000,
     y: 150
   },
   {
