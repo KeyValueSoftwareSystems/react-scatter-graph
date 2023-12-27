@@ -9,7 +9,7 @@ import { GraphPoint } from '../types/types';
 const getById = queryByAttribute.bind(null, 'id');
 
 test('Scatter graph Component - simple', async () => {
-  const dom = render(<ReactScatterGraph data={data} graphHeight={500} />);
+  const dom = render(<ReactScatterGraph data={[{ x: 1, y: 1 }]} graphHeight={500} />);
   const label = await getById(dom.container, 'graph-svg-wrapper');
   expect(label).not.toBeNull();
 });
