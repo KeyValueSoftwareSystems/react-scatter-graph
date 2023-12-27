@@ -64,17 +64,15 @@
 }
 
 .valueBox {
-  height: 40px;
   border: 1px solid gray;
   border-radius: 5px;
   background-color: white;
   box-shadow: 3px 3px 4px 0px rgba(189, 189, 189, 1);
   transition: all 0.5s ease;
-  padding: 4px 10px;
+  padding: 5px 10px;
 }
 
 .valueBoxTest {
-  height: 40px;
   border: 1px solid gray;
   border-radius: 5px;
   background-color: white;
