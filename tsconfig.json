@@ -7,7 +7,6 @@
     "importHelpers": true,
     "rootDir": "src",
     "outDir": "build",
-    "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,

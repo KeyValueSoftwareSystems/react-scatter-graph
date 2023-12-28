@@ -5,7 +5,7 @@ import { DefaultValueBoxPropTypes } from '../types/types';
 import './styles.css';
 
 const DefaultValueBox: FC<DefaultValueBoxPropTypes> = ({ x, y }): ReactElement => (
-  <div className='valueBox' data-testId='value-box'>
+  <div className='valueBox' data-testid='value-box'>
     x: {x}
     <br />
     y: {y}

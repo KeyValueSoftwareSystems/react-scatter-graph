@@ -18,15 +18,11 @@ type StyleObjectType = React.CSSProperties;
 
 type StyleFunction = (value: number | string) => StyleObjectType;
 
-type GenericStyles = {
-  [value in GenericStyleElements]?: StyleObjectType;
+export type CustomStyles = {
+  [GenericStyleElements.Root]: StyleObjectType;
+  [CallableStyleElements.XLabel]: StyleFunction;
+  [CallableStyleElements.YLabel]: StyleFunction;
 };
-
-export type CallableStyles = {
-  [value in CallableStyleElements]?: StyleFunction;
-};
-
-export type CustomStyles = CallableStyles & GenericStyles;
 
 export type ScatterGraphPropTypes = {
   data: Array<GraphPoint>;
